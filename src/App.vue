@@ -1,13 +1,16 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
+  <counter-view></counter-view>
 </template>
 
 <script>
+import CounterView from './components/CounterView.vue'
 
 
 export default {
   name: 'App',
   components: {
+    CounterView
   }
 }
 </script>
