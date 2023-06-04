@@ -10,6 +10,7 @@
 <button @click="increment"> Increment +1</button>
 <button @click="incrementBy"> Increment +5</button>
 <button @click="incrementRandomInt" :disabled="isLoading"> Increment random</button>
+<h2>Direct Getter: {{ $store.getters.squareCount }}</h2>
 </template>
 
 <script>

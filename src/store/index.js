@@ -28,5 +28,10 @@ export default createStore({
             context.commit('setLoading',false);
             context.commit('incrementBy',randomInt);
         }
+    },
+    getters:{
+        squareCount(state){
+            return state.count*state.count;
+        }
     }
 });
