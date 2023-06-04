@@ -9,11 +9,11 @@
   <h2>lastMutation: {{ lastMutation }}</h2>
 <button @click="increment"> Increment +1</button>
 <button @click="incrementBy"> Increment +5</button>
-<button @click="incrementRandom"> Increment random</button>
+<button @click="incrementRandomInt"> Increment random</button>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 export default {
   //forma de llamarlo
   methods:{
@@ -25,7 +25,8 @@ export default {
     },
     incrementRandom(){
       this.$store.dispatch('incrementRandomInt')
-    }
+    },
+    ...mapActions(['incrementRandomInt']),
   },
   computed:{
     countComputed(){
@@ -39,6 +40,7 @@ export default {
     // })
   }
   //computed:mapState(['count'])
+  
 }
 </script>
 
