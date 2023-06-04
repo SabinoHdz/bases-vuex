@@ -9,7 +9,7 @@
   <h2>lastMutation: {{ lastMutation }}</h2>
 <button @click="increment"> Increment +1</button>
 <button @click="incrementBy"> Increment +5</button>
-<button @click="incrementRandomInt"> Increment random</button>
+<button @click="incrementRandomInt" :disabled="isLoading"> Increment random</button>
 </template>
 
 <script>
@@ -32,7 +32,7 @@ export default {
     countComputed(){
       return this.$store.state.count;
     },
-     ...mapState(['count','lastMutation']),
+     ...mapState(['count','lastMutation','isLoading']),
     //otra forma de llamar al state
     // ...mapState({
     //   count:state=>state.count,

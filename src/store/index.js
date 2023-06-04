@@ -5,6 +5,7 @@ export default createStore({
         count:1,
         lastMutation:'none',
         lastRandomInt:0,
+        isLoading:false
     },
     mutations:{
         increment(state){
@@ -15,11 +16,16 @@ export default createStore({
             state.count+=payload;
             state.lastMutation='incrementBy'+ payload;
             state.lastRandomInt=payload;
+        },
+        setLoading(state,value){
+            state.isLoading=value;
         }
     },
     actions:{
         async incrementRandomInt(context){
+            context.commit('setLoading',true);
             const randomInt= await getRandomInt();
+            context.commit('setLoading',false);
             context.commit('incrementBy',randomInt);
         }
     }
